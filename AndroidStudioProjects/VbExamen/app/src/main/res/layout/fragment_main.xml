@@ -1,0 +1,95 @@
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools" android:layout_width="match_parent"
+    android:layout_height="match_parent" android:paddingLeft="@dimen/activity_horizontal_margin"
+    android:paddingRight="@dimen/activity_horizontal_margin"
+    android:paddingTop="@dimen/activity_vertical_margin"
+    android:paddingBottom="@dimen/activity_vertical_margin" tools:context=".MainActivityFragment">
+
+    <TextView android:text="@string/hello_world" android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentTop="true"
+        android:layout_centerHorizontal="true"
+        android:textSize="32sp"
+        android:id="@+id/laatste_transactie_text" />
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textAppearance="?android:attr/textAppearanceLarge"
+        android:text="150 XX"
+        android:id="@+id/laatste_transactie_aantal"
+        android:layout_below="@+id/laatste_transactie_text"
+        android:layout_centerHorizontal="true"
+        android:textSize="32sp" />
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textAppearance="?android:attr/textAppearanceLarge"
+        android:text="Large Text"
+        android:id="@+id/laatste_transactie_res"
+        android:layout_below="@+id/laatste_transactie_aantal"
+        android:layout_centerHorizontal="true"
+        android:textColor="#1129ff" />
+
+    <Button
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Uitvoeren"
+        android:id="@+id/button_uitvoeren"
+        android:layout_alignParentBottom="true"
+        android:layout_alignParentStart="true"
+        android:layout_alignParentEnd="true"
+        android:textAllCaps="false" />
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textAppearance="?android:attr/textAppearanceMedium"
+        android:text="Transactie type"
+        android:id="@+id/transactie_text"
+        android:layout_above="@+id/button_uitvoeren"
+        android:layout_alignParentStart="true" />
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textAppearance="?android:attr/textAppearanceMedium"
+        android:text="Geef bedrag"
+        android:id="@+id/bedrag_text"
+        android:layout_above="@+id/transactie_text"
+        android:layout_alignParentStart="true" />
+
+    <RadioGroup xmlns:android="http://schemas.android.com/apk/res/android"
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical">
+
+    </RadioGroup>
+
+    <RadioButton android:id="@+id/radio_afhalen"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Afhalen"
+        android:onClick="onRadioButtonClicked"
+        android:layout_alignTop="@+id/transactie_text"
+        android:layout_toEndOf="@+id/transactie_text" />
+
+    <RadioButton android:id="@+id/radio_storten"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Storten"
+        android:onClick="onRadioButtonClicked"
+        android:layout_alignTop="@+id/radio_afhalen"
+        android:layout_toEndOf="@+id/radio_afhalen" />
+
+    <EditText
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:inputType="number"
+        android:ems="10"
+        android:id="@+id/bedrag_invoer"
+        android:layout_above="@+id/transactie_text"
+        android:layout_toEndOf="@+id/bedrag_text" />
+
+</RelativeLayout>

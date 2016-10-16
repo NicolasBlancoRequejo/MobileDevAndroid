@@ -1,0 +1,41 @@
+<resources>
+    <string name="app_name">08_ListView</string>
+    <string-array name="OS">
+        <item>Android</item>
+        <item>iPhone</item>
+        <item>WindowsMobile</item>
+        <item>Blackberry</item>
+        <item>WebOS</item>
+        <item>Ubuntu</item>
+        <item>Windows7</item>
+        <item>Max OS X</item>
+        <item>Linux</item>
+        <item>OS/2</item>
+    </string-array>
+    <string-array name="Brit">
+        <item>Anne</item>
+        <item>George I</item>
+        <item>George II</item>
+        <item>George III</item>
+        <item>George IV</item>
+        <item>William IV</item>
+        <item>Victoria</item>
+        <item>Edward VII</item>
+        <item>George V</item>
+        <item>Edward VIII</item>
+        <item>George VI</item>
+        <item>Elizabeth II</item>
+    </string-array>
+    <string-array name="Frans">
+        <item>Louis I</item>
+        <item>Louis II</item>
+        <item>Louis III</item>
+        <item>Louis IV</item>
+        <item>Louis V</item>
+        <item>Louis VI</item>
+        <item>Louis VII</item>
+        <item>Louis VIII</item>
+        <item>Louis IX</item>
+        <item>Louis X</item>
+    </string-array>
+</resources>
