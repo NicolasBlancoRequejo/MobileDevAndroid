@@ -1,0 +1,61 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:orientation="vertical" android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:weightSum="1">
+
+
+    <ImageView
+        android:layout_width="match_parent"
+        android:layout_height="110dp"
+        app:srcCompat="@drawable/pic_placeholder"
+        android:id="@+id/picImageView"
+        android:layout_weight="0.04"
+        android:background="@color/colorAccent" />
+
+    <TextView
+        android:text="Placeholder Party"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:id="@+id/partyTextView"
+        android:layout_weight="0.04"
+        android:layout_below="@+id/picImageView"
+        android:layout_centerHorizontal="true" />
+
+    <TextView
+        android:text="Placeholder Placeski"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:id="@+id/nameTextView"
+        android:layout_below="@+id/partyTextView"
+        android:layout_centerHorizontal="true"
+        android:textSize="30sp" />
+
+    <TextView
+        android:text="42"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/nameTextView"
+        android:layout_centerHorizontal="true"
+        android:id="@+id/ageTextView"
+        android:textSize="18sp" />
+
+    <Button
+        android:text="+"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/ageTextView"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="128dp"
+        android:id="@+id/likeButton" />
+
+    <TextView
+        android:text="12"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignTop="@+id/likeButton"
+        android:layout_toStartOf="@+id/likeButton"
+        android:layout_marginTop="12dp"
+        android:id="@+id/likeTextView" />
+</RelativeLayout>
