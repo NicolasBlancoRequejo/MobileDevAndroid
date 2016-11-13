@@ -28,7 +28,7 @@
             android:layout_alignWithParentIfMissing="true"
             android:gravity="center_vertical"
             android:text="Candidate Name"
-            android:textSize="16sp"
+            android:textSize="24sp"
             android:layout_centerVertical="true"
             android:layout_alignParentEnd="true"
             android:layout_weight="0.2"/>

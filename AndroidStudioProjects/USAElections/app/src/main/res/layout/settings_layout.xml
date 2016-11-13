@@ -1,0 +1,80 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:orientation="vertical" android:layout_width="match_parent"
+    android:layout_height="match_parent">
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        android:id="@+id/electionstypeLinearLayout">
+        <TextView
+            android:text="Election Type"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:id="@+id/electionstypeTextView"
+            android:layout_weight="0.5"
+            android:paddingLeft="5dp"
+            android:paddingStart="5dp" />
+        <Spinner
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:id="@+id/typeSpinner"
+            android:layout_weight="0.5"
+            android:entries="@array/elections_type"
+            android:prompt="@string/elections_prompt"/>
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        android:layout_marginTop="42dp"
+        android:layout_below="@+id/electionstypeLinearLayout"
+        android:layout_alignParentStart="true"
+        android:id="@+id/electionsyearLinearLayout">
+        <TextView
+            android:text="Election Year"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:id="@+id/electionsyearTextView"
+            android:layout_weight="0.5"
+            android:paddingLeft="5dp"
+            android:paddingStart="5dp" />
+        <SeekBar
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:id="@+id/yearSeekBar"
+            android:layout_weight="0.5"/>
+    </LinearLayout>
+    <TextView
+        android:text="2016"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginEnd="73dp"
+        android:id="@+id/yearsTextView"
+        android:layout_below="@+id/electionsyearLinearLayout"
+        android:layout_alignParentEnd="true" />
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        android:layout_marginTop="27dp"
+        android:id="@+id/voterLinearLayout"
+        android:layout_below="@+id/yearsTextView"
+        android:layout_alignParentEnd="true"
+        android:layout_marginEnd="25dp">
+        <TextView
+            android:text="Registrated Voter"
+            android:layout_width="188dp"
+            android:layout_height="wrap_content"
+            android:id="@+id/voterTextView"
+            android:paddingLeft="5dp"
+            android:paddingStart="5dp"/>
+        <CheckBox
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:id="@+id/voterCheckBox"
+            android:layout_weight="1"/>
+    </LinearLayout>
+</RelativeLayout>

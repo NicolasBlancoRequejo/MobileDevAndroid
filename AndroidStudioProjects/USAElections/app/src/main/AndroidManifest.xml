@@ -8,14 +8,25 @@
         android:label="@string/app_name"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
-        <activity android:name=".MainActivity">
+        <!-- <activity android:name=".OLDMainActivity">
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
+        </activity> -->
+        <activity
+            android:name=".MainActivity"
+            android:label="@string/app_name" >
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-        <activity android:label="@string/app_name" android:name=".ProfileActivity"/>
+        <activity android:label="@string/app_name" android:name=".OLDProfileActivity"/>
+        <activity android:label="@string/app_name" android:name=".SettingsActivity"/>
+        <activity android:name=".DetailsActivity" />
     </application>
 
 </manifest>

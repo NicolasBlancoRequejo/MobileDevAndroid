@@ -1,3 +1,11 @@
 <resources>
     <string name="app_name">USAElections</string>
+    <string name="elections_prompt">Choose an election type</string>
+    <string-array name="elections_type">
+        <item>Presidential</item>
+        <item>Senate</item>
+        <item>House of representatives</item>
+        <item>Gubernatorial</item>
+        <item>Mayoral</item>
+    </string-array>
 </resources>
