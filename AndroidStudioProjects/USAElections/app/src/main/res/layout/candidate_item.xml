@@ -14,12 +14,13 @@
 
         <ImageView
             android:id="@+id/item_logoImageView"
-            android:layout_width="wrap_content"
-            android:layout_height="fill_parent"
-            android:src="@drawable/logo_default"
+            android:layout_width="40dp"
+            android:layout_height="match_parent"
+            android:src="@drawable/usa_disc"
             android:layout_alignParentTop="true"
-            android:layout_alignParentEnd="true"
-            android:layout_weight="0.8"/>
+            android:layout_alignParentEnd="true" />
+
+
 
         <TextView
             android:id="@+id/item_nameTextView"

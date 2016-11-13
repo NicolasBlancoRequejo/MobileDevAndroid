@@ -1,23 +1,13 @@
-package com.example.delta.usaelections;
+package be.pxl.mobdev.skelet;
 
 /**
- * Created by Delta on 10-11-16.
+ * Created by stilkin on 4/11/15.
  */
-import java.io.Serializable;
-
-@SuppressWarnings("serial") //With this annotation we are going to hide compiler warnings
 public class Candidate {
     private String name;
     private String party;
     private int age;
     private int votes;
-
-    public Candidate(String name, String party, int age, int votes) {
-        this.name = name;
-        this.party = party;
-        this.age = age;
-        this.votes = votes;
-    }
 
     public String getName() {
         return name;

@@ -1,13 +1,4 @@
 <resources>
-    <string name="app_name">USAElections</string>
-    <string name="elections_prompt">Choose an election type</string>
-    <string-array name="elections_type">
-        <item>Presidential</item>
-        <item>Senate</item>
-        <item>House of representatives</item>
-        <item>Gubernatorial</item>
-        <item>Mayoral</item>
-    </string-array>
     <string name="candidates">[
 		{\"name\": \"Hillary Clinton\", \"party\": \"Democratic party\", \"age\": 68, \"votes\": 14},
 		{\"name\": \"Jeb Bush\", \"party\": \"Republican Party\", \"age\": 62, \"votes\": 8},
@@ -16,8 +7,6 @@
 		{\"name\": \"Donald Trump\", \"party\": \"Republican Party\", \"age\": 69, \"votes\": 9},
 		{\"name\": \"Bob Whitaker\", \"party\": \"AFP\", \"age\": 52, \"votes\": 0},
 		{\"name\": \"Martin O\'Malley\", \"party\": \"Democratic party\", \"age\": 52, \"votes\": 5},
-		{\"name\": \"Rand Paul\", \"party\": \"Republican Party\", \"age\": 52, \"votes\": 7},
-        {\"name\": \"Bob Denhaag\", \"party\": \"Dehagski Party\", \"age\": 42, \"votes\": 5}]
-    </string>
-
+		{\"name\": \"Rand Paul\", \"party\": \"Republican Party\", \"age\": 52, \"votes\": 7}
+]</string>
 </resources>

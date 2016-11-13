@@ -35,13 +35,8 @@ public class TitlesFragment extends ListFragment {
     public void onActivityCreated(Bundle savedInstanceState) {
         super.onActivityCreated(savedInstanceState);
 
-        candidateList = new ArrayList<>();
-        Candidate trump = new Candidate("Donald Trump", "republican", "trump", 70, 225);
-        Candidate clinton = new Candidate("Hillary Clinton", "democrat", "clinton", 69, 175);
-        Candidate denhaag = new Candidate("Bob Denhaag", "denhagerski", "placeholder", 42, 5);
-        candidateList.add(trump);
-        candidateList.add(clinton);
-        candidateList.add(denhaag);
+        ElectionUtils electionUtils = new ElectionUtils();
+        List<Candidate> candidateList = electionUtils.getCandidates(getActivity());
 
         CandidateAdaptor candidateAdaptor = new CandidateAdaptor(getActivity(), R.layout.candidate_item, candidateList);
         // Populate list with our static array of titles.

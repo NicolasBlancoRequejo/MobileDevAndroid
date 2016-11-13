@@ -45,14 +45,14 @@ public class CandidateAdaptor extends ArrayAdapter<Candidate> {
 
             if (logoImageView != null) {
                 switch (candidate.getParty()) {
-                    case "democrat":
-                        logoImageView.setImageResource(R.drawable.logo_democrat);
+                    case "Democratic party":
+                        logoImageView.setImageResource(R.drawable.democratic_party);
                         break;
-                    case "republican":
-                        logoImageView.setImageResource(R.drawable.logo_republican);
+                    case "Republican Party":
+                        logoImageView.setImageResource(R.drawable.republican_party);
                         break;
                     default:
-                        logoImageView.setImageResource(R.drawable.logo_default);
+                        logoImageView.setImageResource(R.drawable.usa_disc);
                 }
 
             }

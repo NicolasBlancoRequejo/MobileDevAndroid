@@ -4,13 +4,11 @@ import android.app.Fragment;
 import android.content.Context;
 import android.graphics.Color;
 import android.os.Bundle;
-import android.util.TypedValue;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Button;
 import android.widget.ImageView;
-import android.widget.ScrollView;
 import android.widget.TextView;
 import android.widget.Toast;
 
@@ -27,8 +25,6 @@ public class DetailsFragment extends Fragment {
      * Create a new instance of DetailsFragment, initialized to
      * show the text at 'index'.
      */
-
-    private static List<Candidate> candidateList;
 
     public static DetailsFragment newInstance(int index) {
         DetailsFragment f = new DetailsFragment();
@@ -68,26 +64,27 @@ public class DetailsFragment extends Fragment {
 
         setHasOptionsMenu(true);
 
-        candidateList = new ArrayList<>();
-        Candidate trump = new Candidate("Donald Trump", "republican", "trump", 70, 225);
-        Candidate clinton = new Candidate("Hillary Clinton", "democrat", "clinton", 69, 175);
-        Candidate denhaag = new Candidate("Bob Denhaag", "denhagerski", "placeholder", 42, 5);
-        candidateList.add(trump);
-        candidateList.add(clinton);
-        candidateList.add(denhaag);
+        ElectionUtils electionUtils = new ElectionUtils();
+        List<Candidate> candidateList = electionUtils.getCandidates(getActivity());
 
         final Candidate candidate = candidateList.get(getShownIndex());
 
         ImageView picImageView = (ImageView) v.findViewById(R.id.picImageView);
         Context context = picImageView.getContext();
-        int id = context.getResources().getIdentifier("pic_"+candidate.getAlias(), "drawable", context.getPackageName());
-        picImageView.setImageResource(id);
+        String[] splittedName = candidate.getName().toLowerCase().split(" ");
+        String formattedName = splittedName[0]+"_"+splittedName[1];
+        int id = context.getResources().getIdentifier(formattedName, "drawable", context.getPackageName());
+        if(id != 0){
+            picImageView.setImageResource(id);
+        }else{
+            picImageView.setImageResource(R.drawable.place_holder);
+        }
 
         switch (candidate.getParty()) {
-            case "democrat":
+            case "Democratic party":
                 picImageView.setBackgroundColor(Color.parseColor("#426ef4"));
                 break;
-            case "republican":
+            case "Republican Party":
                 picImageView.setBackgroundColor(Color.parseColor("#f44242"));
                 break;
             default: picImageView.setBackgroundColor(Color.parseColor("#f442d9"));
@@ -103,7 +100,7 @@ public class DetailsFragment extends Fragment {
         ageTextView.setText(""+candidate.getAge());
 
         final TextView likeTextView = (TextView) v.findViewById(R.id.likeTextView);
-        likeTextView.setText(""+candidate.getLikes());
+        likeTextView.setText(""+candidate.getVotes());
 
         Button likeButton = (Button)v.findViewById(R.id.likeButton);
         likeButton.setOnClickListener(new View.OnClickListener() {
@@ -112,7 +109,7 @@ public class DetailsFragment extends Fragment {
                 int likes = Integer.parseInt(likeTextView.getText().toString());
                 likes += 1;
                 likeTextView.setText(""+likes);
-                candidate.setLikes(likes);
+                candidate.setVotes(likes);
 
 
                 Context context = getActivity();
