@@ -4,14 +4,10 @@ import android.app.FragmentTransaction;
 import android.app.ListFragment;
 import android.content.Intent;
 import android.os.Bundle;
-import android.view.ContextMenu;
-import android.view.Menu;
-import android.view.MenuInflater;
-import android.view.MenuItem;
+import android.util.Log;
 import android.view.View;
 import android.widget.ListView;
 
-import java.util.ArrayList;
 import java.util.List;
 
 /**
@@ -23,7 +19,7 @@ import java.util.List;
 public class TitlesFragment extends ListFragment {
     boolean mDualPane;
     int mCurCheckPosition = 0;
-    List<Candidate> candidateList;
+    private CandidatesDataSource datasource;
 
     @Override
     public void onCreate(Bundle savedInstanceState) {
@@ -34,14 +30,24 @@ public class TitlesFragment extends ListFragment {
     @Override
     public void onActivityCreated(Bundle savedInstanceState) {
         super.onActivityCreated(savedInstanceState);
+        Log.d("list", "TitlesFragment -> onActivityCreated");
 
-        ElectionUtils electionUtils = new ElectionUtils();
-        List<Candidate> candidateList = electionUtils.getCandidates(getActivity());
 
+        //ElectionUtils electionUtils = new ElectionUtils();
+        //List<Candidate> candidateList = electionUtils.getCandidates(getActivity());
+
+        datasource = new CandidatesDataSource(getActivity());
+        datasource.open();
+
+        if (!datasource.doesDBExists()){
+            datasource.populateCandidates(getActivity());
+        }
+
+        List<Candidate> candidateList = datasource.getAllCandidates();
         CandidateAdaptor candidateAdaptor = new CandidateAdaptor(getActivity(), R.layout.candidate_item, candidateList);
+
         // Populate list with our static array of titles.
         setListAdapter(candidateAdaptor);
-
 
         // Check to see if we have a frame in which to embed the details
         // fragment directly in the containing UI.
@@ -71,6 +77,18 @@ public class TitlesFragment extends ListFragment {
     @Override
     public void onListItemClick(ListView l, View v, int position, long id) {
         showDetails(position);
+    }
+
+    @Override
+    public void onResume() {
+        datasource.open();
+        super.onResume();
+    }
+
+    @Override
+    public void onPause() {
+        datasource.close();
+        super.onPause();
     }
 
     /**

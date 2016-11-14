@@ -23,6 +23,7 @@ public class ElectionUtils {
     public static final String RESTYPE_COLOR = "color";
 
     public static List<Candidate> getCandidates(Context ctx) {
+        Log.d("list", "ElectionUtils -> getCandidates");
         final Gson jsonUtils = new Gson();
         final Type listType = new TypeToken<List<Candidate>>() {
         }.getType();
@@ -30,7 +31,6 @@ public class ElectionUtils {
 
         // note: this is not a proper way to load json resources
         final String jsonCandidates = ctx.getResources().getString(R.string.candidates);
-        Log.d("getCandidates", jsonCandidates);
 
         try {
             candidateList = (List<Candidate>) jsonUtils.fromJson(jsonCandidates, listType);

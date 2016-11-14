@@ -21,6 +21,7 @@ import java.util.List;
  */
 
 public class DetailsFragment extends Fragment {
+    private CandidatesDataSource datasource;
     /**
      * Create a new instance of DetailsFragment, initialized to
      * show the text at 'index'.
@@ -44,6 +45,8 @@ public class DetailsFragment extends Fragment {
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setHasOptionsMenu(true);
+        datasource = new CandidatesDataSource(getActivity());
+        datasource.open();
     }
 
     @Override
@@ -63,9 +66,7 @@ public class DetailsFragment extends Fragment {
         View v = inflater.inflate(R.layout.candidate_profile, container, false);
 
         setHasOptionsMenu(true);
-
-        ElectionUtils electionUtils = new ElectionUtils();
-        List<Candidate> candidateList = electionUtils.getCandidates(getActivity());
+        List<Candidate> candidateList = datasource.getAllCandidates();
 
         final Candidate candidate = candidateList.get(getShownIndex());
 
@@ -117,10 +118,24 @@ public class DetailsFragment extends Fragment {
                 int duration = Toast.LENGTH_SHORT;
                 Toast toast = Toast.makeText(context, text, duration);
                 toast.show();
+
+                datasource.updateVotesCandidate(candidate);
             }
         });
 
         return v;
 
+    }
+
+    @Override
+    public void onResume() {
+        datasource.open();
+        super.onResume();
+    }
+
+    @Override
+    public void onPause() {
+        datasource.close();
+        super.onPause();
     }
 }

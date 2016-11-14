@@ -30,6 +30,7 @@ package com.example.delta.usaelections;
 
 import android.app.Activity;
 import android.content.Intent;
+import android.database.sqlite.SQLiteDatabase;
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
 import android.view.ContextMenu;
@@ -37,6 +38,8 @@ import android.view.Menu;
 import android.view.MenuInflater;
 import android.view.MenuItem;
 import android.view.View;
+
+import java.util.List;
 
 /**
  * Demonstration of using fragments to implement different activity layouts.
@@ -51,7 +54,10 @@ public class MainActivity extends AppCompatActivity {
 		super.onCreate(savedInstanceState);
 
 		setContentView(R.layout.activity_fragment_layout);
-	}
+
+
+
+    }
 
     @Override
     public boolean onCreateOptionsMenu(Menu menu)

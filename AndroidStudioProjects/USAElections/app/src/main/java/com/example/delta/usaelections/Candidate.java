@@ -12,12 +12,7 @@ public class Candidate {
     private int age;
     private int votes;
 
-    public Candidate(String name, String party, int age, int votes) {
-        this.name = name;
-        this.party = party;
-        this.age = age;
-        this.votes = votes;
-    }
+    public Candidate() {}
 
     public String getName() {
         return name;
